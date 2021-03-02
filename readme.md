@@ -42,6 +42,9 @@ The colors were taken from [Mastodon](https://joinmastodon.org/).
 ## How
 We use Jekyll's `site.static_files` to get every non-Jekyll file and list it in a table. We then find that file's extension by doing `extension = file.extname | downcase | remove_first: '.'`. This will find the file's extension in lowercase (for if someone named their file `document.TXT`) and without a period (Jekyll returns `.TXT`). Then, we use a `case` statement to figure out what "file type" to display. After that, an `<a>` element is generated with the file's name + extension via `file.name`, and with `href="{{ file.path }}"` to link to the file. A new table definition is created with the modification time recieved from `file.modified_time`. We also have a `span` element with user select disabled to convert the file's modified date string to readable format. For the path, we make a new table definition with `file.path | remove: file.name` (to get the path without the file name). If `path` isn't equal to `/` (or root), we get the path reversed, remove the first slash (technically the last slash because we reversed the string), then reverse it again. Now, we have `/folder` if a file is at `/folder/document.txt`.
 
+## Sitemap.xml
+If you prefer raw code and an xml file that developers could use, there's also a `sitemap.xml` file that you could easily use alongside or instead of jindex itself. It isn't actively maintained, but it still works if you want a sitemap in general or wish to use an unreadable listing.
+
 ## Footer
 The footer contains all necessary information for the end user as well as all information required to comply with our license (see below). The version listed is the current running version of Jekyll, which is what creates the site.
 

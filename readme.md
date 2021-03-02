@@ -20,15 +20,15 @@ If you want to preview jindex, a fully-built instance is available at [/jindex](
 
 <div align="center">
 
-![Without Files](https://bloxxing.is-ne.at/5ufXgT.png)
+![Without Files](https://bloxxing.is-ne.at/L84Q3U.png)
 *without files*
 
-![With Files](https://bloxxing.is-ne.at/Mgxy6Z.png)
+![With Files](https://bloxxing.is-ne.at/jmdusd.png)
 *with files*
 
 </div>
 
-Custom styles can easily be added to the file, but I advise against adding seperate css files to the `<head>`, because they will be listed by the file itself (and because this was created to be saveable for offline usage). Just use `<style>`. If you want a dark jindex, you can put the following inside of the `<head>` element:
+Custom styles can easily be added to the file, but I advise against adding seperate css files, because they will be listed by jindex itself (and because this was created to be saveable for offline usage). Just use `<style>`. If you want a dark jindex, you can put the following inside of the `<head>` element:
 
 ```html
 <style>
@@ -40,7 +40,13 @@ Custom styles can easily be added to the file, but I advise against adding seper
 The colors were taken from [Mastodon](https://joinmastodon.org/).
 
 ## How
-We use Jekyll's `site.static_files` to get every non-Jekyll file and list it in a table. We then find that file's extension by doing `extension = file.extname | downcase | remove_first: '.'`. This will find the file's extension in lowercase (for if someone named their file `document.TXT`) and without a period (Jekyll returns `.TXT`). Then, we use a `case` statement to figure out what FontAwesome SVG to display. After that, an `<a>` element is generated with the file's name + extension via `file.name`, and with `href="{{ file.path }}"` to link to the file. Then, a new table definition is created with the modification time recieved from `file.modified_time`. We also have a `span` element with user select disabled to convert the file's modified date string to readable format. For the path, we make a new table definition with `file.path | remove: file.name` (to get the path without the file name). If `path` isn't equal to `/` (or root), we get the path reversed, remove the first slash (technically the last slash because we reversed the string), then reverse it again. Now, we have `/folder` if a file is at `/folder/document.txt`.
+We use Jekyll's `site.static_files` to get every non-Jekyll file and list it in a table. We then find that file's extension by doing `extension = file.extname | downcase | remove_first: '.'`. This will find the file's extension in lowercase (for if someone named their file `document.TXT`) and without a period (Jekyll returns `.TXT`). Then, we use a `case` statement to figure out what "file type" to display. After that, an `<a>` element is generated with the file's name + extension via `file.name`, and with `href="{{ file.path }}"` to link to the file. A new table definition is created with the modification time recieved from `file.modified_time`. We also have a `span` element with user select disabled to convert the file's modified date string to readable format. For the path, we make a new table definition with `file.path | remove: file.name` (to get the path without the file name). If `path` isn't equal to `/` (or root), we get the path reversed, remove the first slash (technically the last slash because we reversed the string), then reverse it again. Now, we have `/folder` if a file is at `/folder/document.txt`.
+
+## Footer
+The footer contains all necessary information for the end user as well as all information required to comply with our license (see below). The version listed is the current running version of Jekyll, which is what creates the site.
+
+## Mobile
+Mobile support isn't too great, but I find it to generally work at about 320px wide. Any wider than that and the footer may break and you may have some vertical scrolling. I guess you could just... tilt the phone, though.
 
 ## Contributing
 I won't include a gigantic "contributing\.md", but keep in mind:

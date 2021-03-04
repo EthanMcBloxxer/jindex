@@ -47,11 +47,6 @@
 			table {
 				border-collapse: collapse;
 			}
-			.fa {
-				vertical-align: initial;
-				margin: 0 0.25rem;
-				width: 0.75rem;
-			}
 		</style>
 	</head>
 	<body>
@@ -74,44 +69,131 @@
 					<td class="type">
 						{% assign extension = file.extname | lowercase | remove_first: '.' %}
 						{% case extension %}
-							{% when 'adoc' or 'azw' or 'azw3' or 'bib' or 'doc' or 'docm' or 'docx' or 'epub' or 'gdoc' or 'kf8' or 'mobi' or 'md' or 'markdown' or 'odm' or 'odt' or 'odp' or 'otp' or 'pps' or 'ppsm' or 'ppsx' or 'ppt' or 'pptm' or 'pptx' or 'rst' or 'rtf' or 'sdd' or 'show' or 'shw' or 'slp' or 'sti' or 'sxi' or 'watch' or 'txt' or 'text' %}
+							<!-- https://en.wikipedia.org/wiki/List_of_file_formats -->
+							{% when '68k' or '186' or '286' or 'action' or 'apk' or 'app' or 'bat' or 'cmd' or 'com' or 'command' or 'exe' or 'exp' or 'gadget' or 'geo' or 'ipa' or 'jse' or 'ksh' or 'osx' or 'out' or 'pim' or 'prg' or 'ps1' or 'run' or 'xap' or 'xbe' or 'xex' or 'ws' or 'wsf' %}
+								Program / Executable
+							{% when 'apk' or 'appimage' or 'appx' or 'appxbundle' or 'deb' or 'ebuild' or 'inx' or 'msi' or 'pisi' or 'pkg' or 'pet' or 'rpm' or 'snap' %}
+								Program Package / Installer
+							{% when '7z' or 'ace' or 'afa' or 'alz' or 'arc' or 'ark' or 'cdx' or 'arj' or 'b1' or 'b6z' or 'ba' or 'bh' or 'cab' or 'car' or 'cfs' or 'cpt' or 'dar' or 'dd' or 'dgc' or 'ear' or 'gca' or 'ha' or 'hki' or 'ice' or 'kgb' or 'lzh' or 'lha' or 'lzx' or 'maff' or 'mhtml' or 'pak' or 'paq1' or 'paq2' or 'paq3' or 'paq4' or 'paq5' or 'paq6' or 'paq7' or 'paq8' or 'zpaq' or 'pea' or 'pim' or 'pit' or 'qda' or 'rar' or 'rk' or 's7z' or 'sda' or 'sea' or 'sen' or 'sfx' or 'shk' or 'sit' or 'sitx' or 'shar' or 'sqx' or 'tar' or 'gz' or 'tgz' or 'z' or 'bz2' or 'tbz2' or 'lz' or 'tlz' or 'xz' or 'txz' or 'zst' or 'uc' or 'uc0' or 'uc2' or 'ucn' or 'ur2' or 'ue2' or 'uca' or 'uha' or 'war' or 'xar' or 'xp3' or 'yz1' or 'zip' or 'zipx' or 'zoo' or 'zz' %}
+								Compressed Folder
+							{% when 'iso' or 'nrg' or 'img' or 'adf' or 'adz' or 'dms' or 'dsk' or 'd64' or 'sdi' or 'mds' or 'mdx' or 'dmg' or 'cdi' or 'cue' or 'cif' or 'c2d' or 'daa' or 'b6t' %}
+								Disk Archive
+							{% when '3dxml' or '3mf' or 'acp' or 'amf' or 'aec' or 'ar' or 'art' or 'asm' or 'bim' or 'brep' or 'c3d' or 'ccc' or 'ccm' or 'ccs' or 'cad' or 'catdrawing' or 'catpart' or 'catproduct' or 'catprocess' or 'cgr' or 'ckd' or 'ckt' or 'co' or 'drw' or 'dft' or 'dgn' or 'dgk' or 'dmt' or 'dxf' or 'dwb' or 'dwf' or 'dwg' or 'easm' or 'edrw' or 'emb' or 'eprt' or 'escpcb' or 'escsch' or 'esw' or 'excellon' or 'exp' or 'f3d' or 'fcstd' or 'fm' or 'fmz' or 'g' or 'gbr' or 'glm' or 'grb' or 'gtc' or 'iam' or 'icd' or 'idw' or 'ifc' or 'iges' or 'io' or 'ipn' or 'ipt' or 'jt' or 'mcd' or 'mdg' or 'model' or 'ocd' or 'par' or 'pipe' or 'pln' or 'prt' or 'psm' or 'psmodel' or 'pwi' or 'pyt' or 'skp' or 'rlf' or 'rvm' or 'rvt' or 'rfa' or 's12' or 'scad' or 'scdoc' or 'sldasm' or 'slddrw' or 'sldprt' or 'step' or 'stl' or 'std' or 'tct' or 'tcw' or 'unv' or 'vc6' or 'vlm' or 'vs' or 'wrl' or 'x_b' or 'x_t' or 'xe' or 'zofzproj' or 'xsi' or 'brd' or 'bsdl' or 'cdl' or 'cpf' or 'def' or 'dspf' or 'edif' or 'fsdb' or 'gdsii' or 'hex' or 'lef' or 'lib' or 'mas12' or 'oasis' or 'openaccess' or 'psf' or 'psfxl' or 'sdc' or 'sdf' or 'spef' or 'spi' or 'cir' or 'srec' or 's19' or 'sst2' or 'stil' or 'sv' or 's*p' or 'tlf' or 'upf' or 'v' or 'vcd' or 'vhdl' or 'wgl' or 'stdf' %}
+								Design
+							{% when '4db' or '4dd' or '4dindy' or '4dindx' or 'accdb' or 'accde' or 'adt' or 'apr' or 'box' or 'chml' or 'daf' or 'dat' or 'db' or 'dbf' or 'dta' or 'egt' or 'ess' or 'eap' or 'fdb' or 'fp' or 'fp3' or 'fp5' or 'fp7' or 'frm' or 'gdb' or 'gtable' or 'kexi' or 'kexic' or 'kexis' or 'ldb' or 'lirs' or 'mdb' or 'adp' or 'mde' or 'mdf 'or 'myd' or 'myi' or 'nsf' or 'nv2' or 'odb' or 'ora' or 'pdb' or 'pdi' or 'pdx' or 'prc' or 'sql' or 'rec' or 'rel' or 'rin' or 'sdb' or 'sdf' or 'sqlite' or 'udl' or 'wadata' or 'waindx' or 'wamodel' or 'wdb' or 'wmdb' %}
+								Database
+							{% when '0' or '1st' or '600' or '602' or 'abw' or 'acl' or 'afp' or 'ami' or 'ans' or 'asc' or 'aww' or 'ccf' or 'csv' or 'cwk' or 'dbk' or 'dita' or 'doc' or 'docm' or 'docx' or 'dwd' or 'egt' or 'epub' or 'ezw' or 'fdx' or 'ftm' or 'ftx' or 'gdoc' or 'hwp' or 'hwpml' or 'log' or 'lwp' or 'mbp' or 'md' or 'markdown' or 'me' or 'mcw' or 'mobi' or 'nb' or 'nbp' or 'neis' or 'nt' or 'nq' or 'odm' or 'odoc' or 'odt' or 'omm' or 'pages' or 'pap' or 'pdax' or 'pdf' or quox' or 'rst' or 'rtf' or 'rpt' or 'sdw' or 'se' or 'sxw' or 'tex' or 'info' or 'troff' or 'txt' or 'text' or 'uof' or 'uoml' or 'via' or 'wpd' or 'wps' or 'wrd' or 'wrf' or 'wri 'or 'xps' %}
 								Document
-							{% when '68k' or '186' or '286' or 'app' or 'appimage' or 'acc' or 'cmd' or 'com' or 'exe' or 'exm' or 'exp' or 'geo' or 'pim' or 'xbe' or 'xip' %}
-								Binary
-							{% when 'apng' or 'avif' or 'bmp' or 'ciff' or 'cgm' or 'cur' or 'dng' or 'gif' or 'heif' or 'ico' or 'img' or 'jpg' or 'jpeg' or 'jfif' or 'mpo' or 'pjpeg' or 'pjp' or 'png' or 'ppm' or 'pgm' or 'pbm' or 'pnm' or 'pdn' or 'psd' or 'psp' or 'svg' or 'webp' or 'xcf' or '3d' or '3ds' %}
-								Image
-							{% when '3gp' or '8svx' or 'aa' or 'aac' or 'aax' or 'act' or 'aiff' or 'alac' or 'amr' or 'ape' or 'au' or 'awb' or 'cda' or 'dss' or 'dvf' or 'flac' or 'gsm' or 'iklax' or 'ivs' or 'jam' or 'la' or 'm4a' or 'm4b' or 'm4p' or 'mmf' or 'mp3' or 'mpc' or 'msv' or 'nmf' or 'ogg' or 'oga' or 'mogg' or 'opus' or 'ra' or 'rm' or 'rf64' or 'tta' or 'voc' or 'vox' or 'wav' or 'wma' or 'wv' %}
-								Audio
-							{% when '3g2' or '3gp' or 'amv' or 'asf' or 'avi' or 'drc' or 'flv' or 'f4v' or 'f4p' or 'f4a' or 'f4b' or 'gifv' or 'm4v' or 'mkv' or 'mng' or 'mov' or 'qt' or 'mp4' or 'm4p' or 'mpg' or 'mp2' or 'mpeg' or 'mpe' or 'mpv' or 'm2v' or 'mts' or 'm2ts' or 'ts' or 'mxf' or 'nsv' or 'ogv' or 'ogg' or 'rm' or 'rmvb' or 'roq' or 'svi' or 'viv' or 'vob' or 'webm' or 'wmv' or 'yuv' %}
-								Video
-							{% when 'adb' or 'ads' or 'ahk' or 'asm' or 'applescript' or 'scpt' or 'scptd' or 'as' or 'au3' or 'bat' or 'bas' or 'btm' or 'class' or 'cljs' or 'cmd' or 'coffee' or 'cson' or 'litcoffee' or 'c' or 'cls' or 'cpp' or 'h' or 'hpp' or 'hxx' or 'cs' or 'csproj' or 'css' or 'd' or 'dba' or 'e' or 'egg' or 'egt' or 'erb' or 'ino' or 'gml' or 'gmk' or 'go' or 'hta' or 'htm' or 'html' or 'hs' or 'i' or 'ibi' or 'ici' or 'ijs' or 'ipynb' or 'itcl' or 'java' 'js' or 'jscript' or 'javascript' or 'json' or 'jsfl' or 'kt' or 'lua' or 'm' or 'mrc' or 'ncf' or 'nuc' or 'nud' or 'nut' or 'o' or 'pde' or 'php' or 'pl' or 'pm' or 'ps1' or 'ps1xml' or 'psc1' or 'psd1' or 'psm1' or 'py' or 'pyc' or 'pyo' or 'r' or or 'rblx' or 'rbxlx' or 'rbxm' or 'rb' or 'ruby' or 'rdp' or 'red' or 'rs' or 'sb' or 'sb2' or 'sb3' or 'sdl' or 'sh' or 'syjs' or 'sypy' or 'tcl' or 'tns' or 'vb' or 'vbs' or 'vbproj' or 'vcproj' or 'vdproj' or 'xht' or 'xhtml' 'xml' or 'xpl' or 'y' or 'yml' or 'yaml' or 'ebuild' %}
-								Code
-							{% when '7z' or 'a' or 'ar' or 'ace' or 'afa' or 'arc' or 'arj' or 'b1' or 'cab' or 'cfs' or 'cpio' or 'cpt' or 'dar' or 'dgc' or 'dmg' or 'gz' or 'iso' or 'img' or 'ima' or 'lzh' or 'lha' or 'lzx' or 'maff' or 'mht' or 'mhtml' or 'mou' or 'paq' or 'partimg' or 'pea' or 'pim' or 'qda' or 'rar' or 'rk' or 'shar' or 'run' or 'shk' or 'sit' or 'sitx' or 'tar' or 'uc' or 'uc0' or 'uc2' or 'ucn' or 'ur2' or 'ue2' or 'wim' or 'swm' or 'esd' or 'zip' or 'zpaq' or 'z' %}
-								File Archive
-							{% when 'pdf' or 'ps' or 'eps' or 'prn' or 'psd' or 'ai' or 'indd' %}
-								Portable Document
-							{% when 'gxk' or 'ssh' or 'pub' or 'gpg' or 'pgp' or 'ppk' or 'nsign' or 'cer' or 'crt' or 'der' or 'p7b' or 'p7c' or 'p12' or 'pfx' or 'pem' or 'pfx' or 'axx' or 'eea' or 'tc' or 'kode' or 'nsigne' %}
-								Signature / Certificate
-							{% when 'bpw' or 'kdb' or 'kdbx' %}
-								Passwords
-							{% when 'htaccess' or 'cnf' or 'conf' or 'config' or 'cfg' or 'ini' or 'log' or 'vmc' or 'vmx' or 'vmxf' or 'pvs' %}
-								Configuration
-							{% when '4db' or '4dd' or '4dindy' or '4dindx' or '4dr' or 'accdb' or 'accde' or 'adt' or 'apr' or 'box' or 'cell' or 'chml' or 'daf' or 'dat' or 'db' or 'dbf' or 'dta' or 'egt' or 'ess' or 'eap' or 'fdb' or 'fp' or 'fp3' or 'fp5' or 'fp7' or 'frm' or 'gdb' or 'gtable' or 'gsheet' or 'kexi' or 'kexic' or 'kexis' or 'ldb' or 'lirs' or 'mda' or 'mdb' or 'adp' or 'mde' or 'mdf' or 'myd' or 'myi' or 'ncf' or 'nsf' or 'ntf' or 'nv2' or 'odb' or 'ods' or 'ora' or 'pcontact' or 'pdb' or 'pdi' or 'pdx' or 'prc' or 'sql' or 'rec' or 'rel' or 'rin' or 'sdb' or 'sdf' or 'sqlite' or 'udl' or 'wadata' or 'waindx' or 'wamodel' or 'wajournal' or 'wdb' or 'wmdb' or 'xlsx' or 'xlsm' or 'xlsb' or 'xls' or 'xlw' or 'xlr' %}
-								Database or Spreadsheet
-							{% when 'csv' or 'tsv' %}
-								Value Data File
-							{% when 'vfd' or 'vhd' or 'vud' or 'vsv' or 'vmdk' or 'dsk' or 'vdi' or 'hdd' or 'cow' or 'qed' or 'tc' %}
-								Virtual Machine Disk
 							{% when 'myo' or 'myob' or 'tax' or 'ynab' or 'ifx' or 'ofx' or 'qfx' or 'qif' %}
-								Accounting and Finance
-							{% when 'abf' or 'afm' or 'bdf' or 'bmf or 'brfnt' or 'fnt' or 'fon' or 'mgf' or 'otf' or 'pcf' or 'pfa' or 'pfb' or 'pfm' or 'afm' or 'fond' or 'sfd' or 'snf' or 'tdf' or 'tfm' or 'ttf' or 'ufo' or 'woff' or 'woff2' %}
+								Financial
+							{% when 'abf' or 'afm' or 'bdf' or 'bmf' or 'brfnt' or 'fnt' or 'fon' or 'mgf' or 'otf' or 'pcf' or 'pfa' or 'pfb' or 'pfm' or 'afm' or 'fond' or 'sfd' or 'snf' or 'tdf' or 'tfm' or 'ttf' or 'ufo' or 'woff' or 'woff2' %}
 								Font
-							{% when 'jnlp' or 'lnk' or 'link' or 'appref-ms' or 'url' or 'webloc' or 'sym' %}
-								Link
+							{% when 'apr' or 'dem' or 'e00' or 'geojson' or 'geotiff' or 'gml' or 'gpx' or 'itm' or 'mxd' or 'ntf' or 'ov2' or 'shp' or 'tab' or 'worldtiff' or 'dted' or 'kml' %}
+								Geographical
+							{% when 'act' or 'ase' or 'gpl' or 'pal' or 'icc' or 'icm' %}
+								Color
+							{% when 'art' or 'blp' or 'bmp' or 'bti' or 'cd5' or 'cit' or 'cpt' or 'cr2' or 'clip' or 'cpl' or 'dds' or 'dib' or 'djvu' or 'egt' or 'exif' or 'gif' or 'grf' or 'icns' or 'ico' or 'iff' or 'ilbm' or 'lbm' or 'jng' or 'jpeg' or 'jpg' or 'jfif' or 'jp2' or 'jps' or 'kra' or 'lbm' or 'max' or 'miff' or 'mng' or 'msp' or 'nitf' or 'otb' or 'pbm' or 'pc1' or 'pc2' or 'pc3' or 'pcf' or 'pcx' or 'pdn' or 'pgm' or 'pi1' or 'pi2' or 'pi3' or 'pict' or 'pct' or 'png' or 'pnm' or 'pns' or 'ppm' or 'psb' or 'pdd' or 'psp' or 'px' or 'pxm' or 'pxr' or 'qfx' or 'rle' or 'sct' or 'sgi' or 'rgb' or 'int' or 'bw' or 'tga' or 'targa' or 'icb' or 'vda' or 'vst' or 'pix' or 'tif' or 'tiff' or 'vtf' or 'xbm' or 'xcf' or 'xpm' or 'zif' %}
+								Image (Raster)
+							{% when '3dv' or 'amf' or 'awg' or 'ai' or 'cgm' or 'cdr' or 'cmx' or 'dp' or 'dxf' or 'e2d' or 'egt' or 'eps' or 'fs' or 'gbr' or 'odg' or 'svg' or 'stl' or 'wrl' or 'x3d' or 'sxd' or 'tgax' or 'v2d' or 'vdoc' or 'vsd' or 'vsdx' or 'vnd' or 'wmf' or 'emf' or 'xar' %}
+								Image (Vector)
+							{% when '3dmf' or '3dm' or '3mf' or '3ds' or 'abc' or 'ac' or 'amf' or 'an8' or 'aoi' or 'asm' or 'b3d' or 'blend' or 'block' or 'bmd3' or 'bdl4' or 'brres' or 'bfres' or 'c4d' or 'cal3d' or 'ccp4' or 'cfl' or 'cob' or 'core3d' or 'ctm' or 'dae' or 'dff' or 'dpm' or 'dts' or 'egg' or 'fact' or 'fbx' or 'g' or 'glb' or 'glm' or 'gltf' or 'iob' or 'jas' or 'lwo' or 'lws' or 'lxf' or 'lxo' or 'm3d' or 'ma' or 'max' or 'mb' or 'md2' or 'md3' or 'md5' or 'mdx' or 'm' or 'mesh' or 'mm3d' or 'mpo' or 'mrc' or 'nif' or 'obj' or 'off' or 'ogex' or 'ply' or 'prc' or 'prt' or 'pov' or 'r3d' or 'rwx' or 'sia' or 'sib' or 'skp' or 'sldasm' or 'sldprt' or 'smd' or 'u2d' or 'usd' or 'usda' or 'usdc' or 'usdz' or 'vimproj' or 'wrl' or 'vue' or 'vwx' or 'wings' or 'w3d' or 'x' or 'x3d' or 'z3d' %}
+								Model
+							{% when 'jnlp' or 'lnk' or 'appref-ms' or 'url' or 'webloc' or 'sym' or 'desktop' %}
+								Link / Shortcut
+							{% when 'mml' or 'odf' or 'sxm' or 'graph6' or 'sparse6' %}
+								Math
+							{% when 'gslides' or 'key' or 'keynote' or 'nb' or 'nbp' or 'odp' or 'pez' or 'pps' or 'ppt' or 'pptx' or 'prz' or 'sdd' or 'shf' or 'show' or 'shw' or 'slp' or 'sspss' or 'sxi' or 'watch' %}
+								Presentation
+							{% when 'mpp' %}
+								Project Management
+							{% when 'fits' or 'silo' or 'spc' or 'eas3' or 'eossa' or 'ost' or 'ccp4' or 'mrc' or 'hit' or 'sdf' or 'myd' %}
+								Scientific
+							{% when 'grib' or 'bufr' or 'pp' or 'nasa-ames' %}
+								Weather
+							{% when 'cml' or 'mol' or 'sd' or 'sdf' or 'dx' or 'jdx' or 'smi' %}
+								Chemistry
+							{% when 'ab1' or 'asn.1' or 'bam' or 'bcf' or 'bed' or 'caf' or 'cram' or 'ddbj' or 'embl' or 'fasta' or 'fastq' or 'gcproj' or 'genbank' or 'gff' or 'gtf' or 'maf' or 'nexus' or 'nexml' or 'nwk' or 'pdb' or 'phd' or 'pln' or 'sam' or 'sbml' or 'scf' or 'sff' or 'sra' or 'stockholm' or 'swiss-prot' or 'vcf' or 'dcm' or 'nifti' or 'nii' or 'hdr' or 'brik' or 'head' or 'mgh' or 'mgz' or 'mnc' or 'acq' or 'adicht' or 'bci2000' or 'bdf' or 'bkr' or 'cfwb' or 'bicom' or 'ecgml' or 'edf' or 'edf+' or 'fef' or 'gdf' or 'hl7aecg' or 'mfer' or 'openxdf' or 'scp-ecg' or 'sigif' or 'wfdb' or 'hl7' or 'xdt' %}
+								Biology
+							{% when 'adb' or 'ads' or 'ahk' or 'asm' or 'applescript' or 'scpt' or 'scptd' or 'as' or 'au3' or 'bat' or 'bas' or 'btm' or 'class' or 'cljs' or 'cmd' or 'coffee' or 'cson' or 'litcoffee' or 'c' or 'cls' or 'cpp' or 'h' or 'hpp' or 'hxx' or 'cs' or 'csproj' or 'css' or 'd' or 'dba' or 'e' or 'egg' or 'egt' or 'erb' or 'ino' or 'gml' or 'gmk' or 'go' or 'hta' or 'htm' or 'html' or 'hs' or 'i' or 'ibi' or 'ici' or 'ijs' or 'ipynb' or 'itcl' or 'java' 'js' or 'jscript' or 'javascript' or 'json' or 'jsfl' or 'kt' or 'lua' or 'm' or 'mrc' or 'ncf' or 'nuc' or 'nud' or 'nut' or 'o' or 'pde' or 'php' or 'pl' or 'pm' or 'ps1' or 'ps1xml' or 'psc1' or 'psd1' or 'psm1' or 'py' or 'pyc' or 'pyo' or 'r' or or 'rblx' or 'rbxlx' or 'rbxm' or 'rb' or 'ruby' or 'rdp' or 'red' or 'rs' or 'sb' or 'sb2' or 'sb3' or 'sdl' or 'sln' or 'sh' or 'syjs' or 'sypy' or 'tcl' or 'tns' or 'vb' or 'vbs' or 'vbproj' or 'vcproj' or 'vdproj' or 'xht' or 'xhtml' 'xml' or 'xpl' or 'y' or 'yml' or 'yaml' or 'dtd' or 'asp' or 'aspx' or 'bml' or 'cfm' or 'cgi' or 'ihtml' or 'jsp' or 'las' or 'lasso' or 'lassoapp' or 'shtml' or 'stm'%}
+								Code
+							{% when 'gxk' or 'ssh' or 'pub' or 'gpg' or 'pgp' or 'ppk' or 'nsign' or 'cer' or 'crt' or 'der' or 'p7b' or 'p7c' or 'p12' or 'pfx' or 'pem' or 'pfx' or 'axx' or 'eea' or 'tc' or 'nsigne' %}
+								Signature / Certificate
+							{% when 'kdb' or 'kdbx' %}
+								KeePass Passwords
+							{% when 'bpw' %}
+								Bitser Passwords
+							{% when '8svx' or '16svx' or 'aiff' or 'aif' or 'aifc' or 'au' or 'bwf' or 'cdda' or 'dsf' or 'dff' or 'wav' %}
+								Sound (Lossless, Uncompressed)
+							{% when 'ra' or 'rm' or 'flac' or 'la' or 'pac' or 'ape' or 'ofr' or 'ofs' or 'off' or 'rka' or 'shn' or 'tak' or 'thd' or 'tta' or 'wv' or 'wma' or 'brstm' or 'dts' or 'dtshd' or 'dtsma' or 'ast' or 'aw' or 'psf' %}
+								Sound (Lossless, Compressed)
+							{% when 'ac3' or 'amr' or 'mp1' or 'mp2' or 'mp3' or 'spx' or 'gsm' or 'wma' or 'aac' or 'mpc' or 'vqf' or 'ots' or 'swa' or 'vox' or 'voc' or 'dwd' or 'smp' or 'ogg' %}
+								Sound (Lossy)
+							{% when 'abc' or 'darmis' or 'etf' or 'gp' or 'kern' or 'ly' or 'mei' or 'mus' or 'musx' or 'mxl' or 'mscx' or 'mscz' or 'smdl' or 'sib' %}
+								Sheet Music
+							{% when 'aimppl' or 'asx' or 'ram' or 'xpl' or 'xspf' or 'zpl' or 'm3u' or 'pls' %}
+								Playlist
+							{% when 'als' or 'alc' or 'alp' or 'atmos' or 'audio' or 'metadata' or 'aup' or 'band' or 'cel' or 'cpr' or 'cwp' or 'drm' or 'dmkit' or 'ens' or 'flp' or 'grir' or 'logic' or 'mmp' or 'mmr' or 'mx6hs' or 'npr' or 'omf' or 'omfi' or 'rin' or 'rpp' or 'rpp-bak' or 'reapeaks' or 'ses' or 'sfk' or 'sfl' or 'sng' or 'stf' or 'snd' or 'syn' or 'ust' or 'vcls' or 'vpr' or 'vsq' or 'vsqx' %}
+								Audio Project
+							{% when '123' or 'ab2' or 'ab3' or 'aws' or 'bcsv' or 'clf' or 'cell' or 'csv' or 'gsheet' or 'numbers' or 'gnumeric' or 'lcw' or 'ods' or 'qpw' or 'sdc' or 'sxc' or 'tab' or 'tsv' or 'vc' or 'wk1' or 'wk3' or 'wk4' or 'wks' or 'xlk' or 'xls' or 'xlsb' or 'xlsm' or 'xlsx' or 'xlr' or 'xlw' %}
+								Spreadsheet
+							{% when 'aaf' or '3gp' or 'asf' or 'avchd' or 'avi' or 'bik' or 'braw' or 'cam' or 'collab' or 'dsh' or 'dvr-ms' or 'flv' or 'm1v' or 'm2v' or 'noa' or 'fla' or 'flr' or 'sol' or 'm4v' or 'mkv' or 'wrap' or 'mng' or 'mov' or 'mpeg' or 'mpg' or 'mpe' or 'thp' or 'mp4' or 'mxf' or 'roq' or 'nsv' or 'ogg' or 'rm' or 'svi' or 'smi' or 'smk' or 'swf' or 'wmv' or 'wtv' or 'yuv' or 'webm' %}
+								Video
+							{% when 'fcp' or 'mswmm' or 'ppj' or 'prproj' or 'imovieproj' or 'veg' or 'veg-bak' or 'suf' or 'wlmp' or 'kdenlive' or 'vpj' or 'motn' or 'imoviemobile' or 'wfp' or 'wve' or 'wlmp' or 'pds' %}
+								Video Project
+							{% when 'vfd' or 'vhd' or 'vud' or 'vmdk' or 'dsk' or 'vdi' or 'hdd' or 'cow' or 'qcow' or 'qcow2' or 'qed' %}
+								Virtual Storage
+							{% when 'vmc' or 'nvram' or 'vmx' or 'vmxf' or 'pvs' %}
+								Virtual Machine Config
+							{% when 'vsv' or 'vmsn' or 'sav' %}
+								Virtual Machine Snapshot
 							{% when 'atom' or 'rss' %}
-								Web News Feed
+								Web Feed
+							{% when 'eml' or 'mbox' %}
+								Email
+							{% when 'ani' or 'cur' %}
+								Cursor
+							{% when 'bin' %}
+								Binary Data
+							{% when 'dat' %}
+								Data
+							{% when 'dsk' %}
+								Disk
+							{% when 'raw' %}
+								Unprocessed
+							{% when 'htaccess' or 'cnf' or 'conf' or 'cfg' %}
+								Configuration
+							{% when 'log' %}
+								Logfile
+							{% when 'diff' %}
+								File Differences
+							{% when 'axd' %}
+								Cookie
+							{% when 'hlp' %}
+								Windows Help
+							{% when '!ut' or 'crdownload' or 'opdownload' or 'part' or 'partial' %}
+								Incomplete Download
 							{% else %}
-								Unknown
+								{% assign filename = file.name | lowercase %}
+								{% if filename == 'desktop.ini' %}
+									<em>Windows Directory Attributes</em>
+								{% elsif filename == '.ds_store' %}
+									<em>Mac Directory Attributes</em>
+								{% elsif filename == 'boot.ini' %}
+									<em>Boot Configuration File</em>
+								{% elsif filename == 'win.ini' %}
+									<em>Basic Windows Settings</em>
+								{% elsif filename == 'system.ini' %}
+									<em>Drivers Configuration File</em>
+								{% elsif filename == 'config.sys' %}
+									<em>DOS System Configuration</em>
+								{% elsif filename == 'php.ini' %}
+									<em>PHP Configuration File</em>
+								{% elsif filename == '.properties' %}
+									<em>Java Properties</em>
+								{% else %}
+									Unknown
+								{% endif %}
+								{% assign filename = nil %}
 						{% endcase %}
 					</td>
 					<td class="mdate">
@@ -127,6 +209,27 @@
 						{% assign path = nil %}
 					</td>
 				</tr>
+				{% endfor %}
+
+				{% for file in site.pages %}
+				{% assign filename = file.name | lowercase %}
+				{% if filename == 'sitemap.xml' %}
+				<tr class="name">
+					<td class="name" style="padding-bottom: 0.25rem;">
+						<a href="{{ file.path | relative_url }}">{{ file.name }}</a>
+					</td>
+					<td class="type">
+						Sitemap
+					</td>
+					<td class="mdate">
+						{{ site.time }} ({{ site.time | date: "%I:%M%P on %b %e, %Y" }})
+					</td>
+					<td class="path">
+						/
+					</td>
+				</tr>
+				{% endif %}
+				{% assign filename = nil %}
 				{% endfor %}
 			</tbody>
 		</table>

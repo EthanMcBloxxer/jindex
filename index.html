@@ -40,6 +40,21 @@
 			.path {
 				text-align: left;
 			}
+			@media screen and (max-width: 1100px) {td.mdate > span.ordinal {
+				display: none;
+			}}
+			@media screen and (max-width: 700px) {th.mtime, td.mdate {
+				display: none;
+			}}
+			@media screen and (max-width: 500px) {th.path, td.path {
+				display: none;
+			}}
+			@media screen and (max-width: 400px) {#credit {
+				display: none;
+			}}
+			@media screen and (max-width: 350px) {th.type, td.type {
+				display: none;
+			}}
 			tr {
 				width: auto;
 			}
@@ -203,7 +218,7 @@
 						{% endcase %}
 					</td>
 					<td class="mdate">
-						{{ file.modified_time }} <span class="locale" style="user-select: none;">({{ file.modified_time | date: "%I:%M%P on %b %e, %Y" }})</span>
+						{{ file.modified_time }} <span class="ordinal" style="user-select: none;">({{ file.modified_time | date: "%I:%M%P on %b %e, %Y" }})</span>
 					</td>
 					<td class="path">
 						{% assign path = file.path | remove: file.name %}
@@ -229,7 +244,7 @@
 						Sitemap
 					</td>
 					<td class="mdate">
-						{{ site.time }} <span class="locale" style="user-select: none;">({{ site.time | date: "%I:%M%P on %b %e, %Y" }})</span>
+						{{ site.time }} <span class="ordinal" style="user-select: none;">({{ site.time | date: "%I:%M%P on %b %e, %Y" }})</span>
 					</td>
 					<td class="path">
 						{{ file.dir }}

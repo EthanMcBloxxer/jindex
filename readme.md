@@ -9,7 +9,7 @@ It was initially created for "dump" repositories, where there are a bunch of fil
 **Note:** Jekyll will not actually add any files or folders that start with a period to the built site (these are called dotfiles). This is not an issue with jindex. If you wish to add these to the final built site, then you have to add
 
 ```yml
-include: /
+include: *
 ```
 
 to a `_config.yml` file. This also won't get built with the site, but it will still stay in your repository.
@@ -49,7 +49,15 @@ If you prefer raw code and an xml file that developers could use, there's also a
 The footer contains all necessary information for the end user as well as all information required to comply with our license (see below). The version listed is the current running version of Jekyll, which is what creates the site.
 
 ## Mobile
-Mobile support isn't too great, but I find it to generally work at about 320px wide. Any wider than that and the footer may break and you may have some vertical scrolling. I guess you could just... tilt the phone, though.
+Table columns are removed at certain device widths:
+
+| Width | Element |
+|:-|:-|
+| 1100px | Ordinal Date |
+| 700px | Date |
+| 500px | Path |
+| 400px | Footer Credit |
+| 350px | Type |
 
 ## Contributing
 I won't include a gigantic "contributing\.md", but keep in mind:

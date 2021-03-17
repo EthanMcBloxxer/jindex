@@ -2,9 +2,10 @@
 ---
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<title>Index of {{ page.url }}</title>
+		<title>Index of {{ page.dir }}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>/* Normalize.css v8.1 */
 			html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:1rem}main{display:block}h1{font-size:2em;margin:0.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace, monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace, monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-0.25em}sup{top:-0.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type="button"],[type="reset"],[type="submit"],button{-webkit-appearance:button}[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type="button"]:-moz-focusring,[type="reset"]:-moz-focusring,[type="submit"]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:0.35em 0.75em 0.625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0}[type="number"]::-webkit-inner-spin-button,[type="number"]::-webkit-outer-spin-button{height:auto}[type="search"]{-webkit-appearance:textfield;outline-offset:-2px}[type="search"]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
 		</style>
@@ -39,6 +40,9 @@
 			.path {
 				text-align: left;
 			}
+			tr {
+				width: auto;
+			}
 			td {
 				text-overflow: ellipsis;
 				white-space: nowrap;
@@ -50,7 +54,7 @@
 		</style>
 	</head>
 	<body>
-		<h1 style="margin-bottom: 1rem;">Index of {{ page.url }}</h1>
+		<h1 style="margin-bottom: 1rem;">Index of {{ page.dir }}</h1>
 		<table width="100%">
 			<thead style="user-select: none;">
 				<tr>
@@ -62,6 +66,8 @@
 			</thead>
 			<tbody>
 				{% for file in site.static_files %}
+				{% assign filepath = file.path | remove: file.name %}
+				{% if filepath contains page.dir %}
 				<tr class="name">
 					<td class="name" style="padding-bottom: 0.25rem;">
 						<a href="{{ file.path | relative_url }}">{{ file.name }}</a>
@@ -197,7 +203,7 @@
 						{% endcase %}
 					</td>
 					<td class="mdate">
-						{{ file.modified_time }} <span style="user-select: none;">({{ file.modified_time | date: "%I:%M%P on %b %e, %Y" }})</span>
+						{{ file.modified_time }} <span class="locale" style="user-select: none;">({{ file.modified_time | date: "%I:%M%P on %b %e, %Y" }})</span>
 					</td>
 					<td class="path">
 						{% assign path = file.path | remove: file.name %}
@@ -209,11 +215,12 @@
 						{% assign path = nil %}
 					</td>
 				</tr>
+				{% endif %}
 				{% endfor %}
 
 				{% for file in site.pages %}
 				{% assign filename = file.name | lowercase %}
-				{% if filename == 'sitemap.xml' %}
+				{% if filename == 'sitemap.xml' and file.dir == page.dir %}
 				<tr class="name">
 					<td class="name" style="padding-bottom: 0.25rem;">
 						<a href="{{ file.path | relative_url }}">{{ file.name }}</a>
@@ -222,10 +229,10 @@
 						Sitemap
 					</td>
 					<td class="mdate">
-						{{ site.time }} ({{ site.time | date: "%I:%M%P on %b %e, %Y" }})
+						{{ site.time }} <span class="locale" style="user-select: none;">({{ site.time | date: "%I:%M%P on %b %e, %Y" }})</span>
 					</td>
 					<td class="path">
-						/
+						{{ file.dir }}
 					</td>
 				</tr>
 				{% endif %}
@@ -234,7 +241,7 @@
 			</tbody>
 		</table>
 		<footer>
-			{{ jekyll.version }} &bull; <a href="//github.com/EthanMcBloxxer/jindex" style="color: inherit;">jindex</a> by <a href="//ethanmcbloxxer.github.io/" style="color: inherit;">EthanMcBloxxer</a>
+			Jekyll {{ jekyll.version }} <span id="credit">&bull; <a href="//github.com/EthanMcBloxxer/jindex" style="color: inherit;">jindex</a> by <a href="//ethanmcbloxxer.github.io/" style="color: inherit;">EthanMcBloxxer</a></span>
 		</footer>
 	</body>
 </html>

@@ -193,10 +193,14 @@
 								Windows Help
 							{% when '!ut' or 'crdownload' or 'opdownload' or 'part' or 'partial' %}
 								Incomplete Download
+							{% when 'trashes' %}
+								"Trash" Archive
 							{% else %}
 								{% assign filename = file.name | lowercase %}
 								{% if filename == 'desktop.ini' %}
 									<em>Windows Directory Attributes</em>
+								{% elsif filename == 'thumbs.db' or filename == 'thumbcache_16.db' or filename == 'thumbcache_32.db' or filename == 'thumbcache_48.db' or filename == 'thumbcache_64.db' or filename == 'thumbcache_256.db' or filename == 'thumbcache_1024.db' or filename == 'thumbcache_WIDE.db' or filename == 'iconcache_16.db' or filename == 'iconcache_32.db' or filename == 'iconcache_48.db' or filename == 'iconcache_64.db' or filename == 'iconcache_256.db' or filename == 'iconcache_1024.db' or filename == 'iconcache_WIDE.db' %}
+									<em>Windows Thumbnail View Cache</em>
 								{% elsif filename == '.ds_store' %}
 									<em>Mac Directory Attributes</em>
 								{% elsif filename == 'boot.ini' %}
@@ -211,6 +215,8 @@
 									<em>PHP Configuration File</em>
 								{% elsif filename == '.properties' %}
 									<em>Java Properties</em>
+								{% elsif filename == '.spotlight-v100' %}
+									<em>Mac File Index</em>
 								{% else %}
 									Unknown
 								{% endif %}

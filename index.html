@@ -29,6 +29,9 @@ directories: true
 				height: 2rem;
 				width: 100%;
 			}
+			footer > #credit > a {
+				color: inherit;
+			}
 			a, a:visited {
 				color: #0000EE;
 				text-decoration: none;
@@ -63,16 +66,20 @@ directories: true
 				text-overflow: ellipsis;
 				white-space: nowrap;
 				overflow: hidden;
+				padding-bottom: 0.25rem;
 			}
 			table {
 				border-collapse: collapse;
+			}
+			thead, .ordinal {
+				user-select: none;
 			}
 		</style>
 	</head>
 	<body>
 		<h1 style="margin-bottom: 1rem;">Index of {{ page.dir }}</h1>
 		<table width="100%">
-			<thead style="user-select: none;">
+			<thead>
 				<tr>
 					<th class="name">File</th>
 					<th class="type">Type</th>
@@ -85,7 +92,7 @@ directories: true
 			<tbody>
 				{% unless page.dir == "/" %}
 				<tr>
-					<td class="name" style="padding-bottom: 0.25rem;">
+					<td class="name">
 						<a href="..">../</a>
 					</td>
 					<td class="type">
@@ -104,7 +111,7 @@ directories: true
 				{% assign slashes = folder | remove_first: page.dir | split: "/" | size | abs %}
 				{% if slashes <= 1 %}
 				<tr>
-					<td class="name" style="padding-bottom: 0.25rem;">
+					<td class="name">
 						<a href="{{ folder | relative_url }}">{{ folder | remove_first: page.dir }}</a>
 					</td>
 					<td class="type">
@@ -130,7 +137,7 @@ directories: true
 				{% endif %}
 				{% if directoriesfalse or directoriestrue %}
 				<tr>
-					<td class="name" style="padding-bottom: 0.25rem;">
+					<td class="name">
 						<a href="{{ file.path | relative_url }}">{{ file.name }}</a>
 					</td>
 					<td class="type">
@@ -272,7 +279,7 @@ directories: true
 						{% endcase %}
 					</td>
 					<td class="mdate">
-						{{ file.modified_time }} <span class="ordinal" style="user-select: none;">({{ file.modified_time | date: "%I:%M%P on %b %e, %Y" }})</span>
+						{{ file.modified_time }} <span class="ordinal">({{ file.modified_time | date: "%I:%M%P on %b %e, %Y" }})</span>
 					</td>
 					{% unless page.directories %}
 					<td class="path">
@@ -293,14 +300,14 @@ directories: true
 				{% assign filename = file.name | lowercase %}
 				{% if filename == 'sitemap.xml' and file.dir == page.dir %}
 				<tr>
-					<td class="name" style="padding-bottom: 0.25rem;">
+					<td class="name">
 						<a href="{{ file.path | relative_url }}">{{ file.name }}</a>
 					</td>
 					<td class="type">
 						Sitemap
 					</td>
 					<td class="mdate">
-						{{ site.time }} <span class="ordinal" style="user-select: none;">({{ site.time | date: "%I:%M%P on %b %e, %Y" }})</span>
+						{{ site.time }} <span class="ordinal">({{ site.time | date: "%I:%M%P on %b %e, %Y" }})</span>
 					</td>
 					{% unless page.directories %}
 					<td class="path">
@@ -314,7 +321,7 @@ directories: true
 			</tbody>
 		</table>
 		<footer>
-			Jekyll {{ jekyll.version }} <span id="credit">&bull; <a href="//github.com/EthanMcBloxxer/jindex" style="color: inherit;">jindex</a> by <a href="//ethanmcbloxxer.github.io/" style="color: inherit;">EthanMcBloxxer</a></span>
+			Jekyll {{ jekyll.version }} <span id="credit">&bull; <a href="//github.com/EthanMcBloxxer/jindex">jindex</a> by <a href="//ethanmcbloxxer.github.io/">EthanMcBloxxer</a></span>
 		</footer>
 	</body>
 </html>

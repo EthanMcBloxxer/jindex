@@ -84,7 +84,7 @@ directories: true
 			</thead>
 			<tbody>
 				{% unless page.dir == "/" %}
-				<tr class="name">
+				<tr>
 					<td class="name" style="padding-bottom: 0.25rem;">
 						<a href="..">../</a>
 					</td>
@@ -103,7 +103,7 @@ directories: true
 				{% unless folder == "" or folder == "/" or folder == "/ " or folder == page.dir %}
 				{% assign slashes = folder | remove_first: page.dir | split: "/" | size | abs %}
 				{% if slashes <= 1 %}
-				<tr class="name">
+				<tr>
 					<td class="name" style="padding-bottom: 0.25rem;">
 						<a href="{{ folder | relative_url }}">{{ folder | remove_first: page.dir }}</a>
 					</td>
@@ -129,7 +129,7 @@ directories: true
 				{% assign directoriestrue = false %}
 				{% endif %}
 				{% if directoriesfalse or directoriestrue %}
-				<tr class="name">
+				<tr>
 					<td class="name" style="padding-bottom: 0.25rem;">
 						<a href="{{ file.path | relative_url }}">{{ file.name }}</a>
 					</td>
@@ -292,7 +292,7 @@ directories: true
 				{% for file in site.pages %}
 				{% assign filename = file.name | lowercase %}
 				{% if filename == 'sitemap.xml' and file.dir == page.dir %}
-				<tr class="name">
+				<tr>
 					<td class="name" style="padding-bottom: 0.25rem;">
 						<a href="{{ file.path | relative_url }}">{{ file.name }}</a>
 					</td>

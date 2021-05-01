@@ -76,7 +76,7 @@ We're licensed under the MIT License, but if you keep the footer credit which li
 
 ### Style
 
-jindex is preferred to be written all-lowercase, as "jindex". Even in the beginning of sentances. jindex. If it is *really* required, use "jIndex", or, if it is so required that you could die if you don't use proper punctuation, you can use "JIndex". Never use "Jindex".
+jindex is preferred to be written all-lowercase, as "jindex". Even in the beginning of sentences. jindex. If it is *really* required, use "jIndex", or, if it is so required that you could die if you don't use proper punctuation, you can use "JIndex". Never use "Jindex".
 
 ### Abbriviation
 

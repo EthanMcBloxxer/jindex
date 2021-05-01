@@ -1,5 +1,6 @@
 ---
 directories: true
+modified: false
 ---
 
 <!DOCTYPE html>
@@ -83,7 +84,9 @@ directories: true
 				<tr>
 					<th class="name">File</th>
 					<th class="type">Type</th>
+					{% if modified %}
 					<th class="mtime">Modified</th>
+					{% endif %}
 					{% unless page.directories %}
 					<th class="path">Path</th>
 					{% endunless %}
@@ -278,9 +281,11 @@ directories: true
 								{% assign filename = nil %}
 						{% endcase %}
 					</td>
+					{% if modified %}
 					<td class="mdate">
 						{{ file.modified_time }} <span class="ordinal">({{ file.modified_time | date: "%I:%M%P on %b %e, %Y" }})</span>
 					</td>
+					{% endif %}
 					{% unless page.directories %}
 					<td class="path">
 						{% assign path = file.path | remove: file.name %}
@@ -306,9 +311,11 @@ directories: true
 					<td class="type">
 						Sitemap
 					</td>
+					{% if modified %}
 					<td class="mdate">
 						{{ site.time }} <span class="ordinal">({{ site.time | date: "%I:%M%P on %b %e, %Y" }})</span>
 					</td>
+					{% endif %}
 					{% unless page.directories %}
 					<td class="path">
 						{{ file.dir }}
